@@ -1,0 +1,45 @@
+# S3 Bucket Watcher Service Configuration
+# Copy this file and customize for your environment
+
+# S3 Configuration
+s3:
+  # Source bucket where uploaders deposit data
+  inbox_bucket: "omicz-dev"
+  # Destination bucket for validated data (same bucket for single-bucket testing)
+  storage_bucket: "omicz-dev"
+  # Bucket for success/failure marker files (same bucket for single-bucket testing)
+  checksum_bucket: "omicz-dev"
+  # AWS region (default: us-east-1)
+  region: "eu-east-1"
+  # Optional: Custom S3 endpoint for MinIO/localstack
+  endpoint_url: "https://s3.cloud.e-infra.cz"
+  use_ssl: true
+  verify_ssl: true
+
+# Watcher Configuration
+watcher:
+  # Directory prefixes to watch in the inbox bucket
+  watched_prefixes:
+    - "inbox/"
+  # Interval between scan cycles (seconds)
+  poll_interval_seconds: 60
+  # Delay after discovering checksum file to allow S3 consistency (seconds)
+  settling_period_seconds: 30
+  # Maximum directories to process concurrently
+  max_concurrent_directories: 5
+
+# Transfer Configuration
+transfer:
+  # Maximum concurrent S3 copy operations
+  max_concurrent_copies: 10
+  # Verify objects after copying via HEAD request
+  verify_after_copy: true
+  # Prefix to strip from source keys before transferring to storage
+  inbox_prefix: "inbox/"
+  # Prefix to prepend to destination keys in storage bucket
+  storage_prefix: "storage/"
+  # Prefix to prepend to checksum marker keys in checksum bucket
+  checksum_prefix: "checksums/"
+
+# Logging Configuration
+log_level: "DEBUG"

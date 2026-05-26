@@ -154,7 +154,7 @@ class Orchestrator:
                 logger.warning(
                     f"Validation failed for {prefix}: "
                     f"{len(validation_result.corrupted_files)} corrupted files, "
-                    f"{validation_result.missing_hashes} missing hashes"
+                    f"{validation_result.missing_hashes} missing hashes "
                     f"{validation_result.extra_files} extra files"
                 )
 

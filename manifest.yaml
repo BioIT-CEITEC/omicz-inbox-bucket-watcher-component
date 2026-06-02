@@ -1,0 +1,16 @@
+name: omicz-inbox-bucket-watcher-component
+service_address: null
+secure_cloud: true
+status: in-development
+repository_url: https://github.com/BioIT-CEITEC/omicz-inbox-bucket-watcher-component
+version: 0.1.0
+
+description: Watches the inbox S3 bucket for new data, verifies the data and moves the data to a permanent location.
+maintainers: [Kristián Kováč]
+dependencies: []
+tags: [s3, data, bucket, inbox, omicz]
+license: ""
+docs_url: https://github.com/BioIT-CEITEC/omicz-inbox-bucket-watcher-component/blob/main/README.md
+contact_email: [kovac@ics.muni.cz]
+language: [Python]
+volumes: []
